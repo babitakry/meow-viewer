@@ -1,17 +1,60 @@
-# React + Vite
+# 🐱 Meow Viewer
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A beautiful, responsive Random Cat Viewer built with React. Discover different cat breeds with a single click — view their images, origin, lifespan, temperament, and Wikipedia links, all fetched dynamically from the [FreeAPI Cat API](https://api.freeapi.app/api/v1/public/cats/cat/random).
 
-Currently, two official plugins are available:
+## 🌐 Live Demo
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+👉 [https://meow-viewer-peach.vercel.app/](https://meow-viewer-peach.vercel.app/)
 
-## React Compiler
+## ✨ Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **Random Cat Generator** — Fetch a new random cat breed with one click
+- **Breed Details** — Displays name, origin, lifespan, description, and temperament
+- **Wikipedia Link** — Quick link to learn more about each breed
+- **Clean UI** — Minimalist, modern design with smooth hover animations
+- **Responsive** — Works seamlessly on desktop and mobile
+- **Loading & Error States** — Skeleton loaders and graceful error handling
 
-## Expanding the ESLint configuration
+## 🛠️ Tech Stack
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
-# meow-viewer
+- **React** — Component-based UI
+- **Vite** — Fast dev server and build tool
+- **Tailwind CSS v4** — Utility-first styling
+- **FreeAPI** — Random cat data source
+
+## 📁 Project Structure
+
+```
+src/
+├── components/
+│   ├── CatImage.jsx         # Cat image display with loading/error states
+│   ├── CatDetails.jsx       # Breed info, temperament tags, Wikipedia link
+│   ├── LoadingSkeleton.jsx   # Pulsing placeholder while data loads
+│   └── ErrorState.jsx        # Error message with retry button
+├── App.jsx                   # Main app with API fetching logic
+├── App.css
+├── index.css                 # Tailwind imports & custom animations
+└── main.jsx
+```
+
+## 🚀 Getting Started
+
+```bash
+# Clone the repo
+git clone https://github.com/babitakry/meow-viewer.git
+cd meow-viewer
+
+# Install dependencies
+npm install
+
+# Start the dev server
+npm run dev
+```
+
+Open [http://localhost:5173](http://localhost:5173) to view it in the browser.
+
+## 📦 Build for Production
+
+```bash
+npm run build
+```

@@ -1,27 +1,31 @@
 export default function CatImage({ loading, error, image, name }) {
   return (
-    <div className="relative h-72 sm:h-80 w-full overflow-hidden bg-slate-100 group">
-      {loading ? (
-        <div className="absolute inset-0 flex items-center justify-center bg-slate-50 animate-pulse">
-          <svg className="animate-spin h-8 w-8 text-slate-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-            <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-            <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-          </svg>
-        </div>
-      ) : error ? (
-        <div className="absolute inset-0 flex flex-col items-center justify-center bg-red-50">
-          <span className="text-5xl text-red-300 mb-2">😿</span>
-        </div>
-      ) : (
-        <img 
-          src={image || 'https://via.placeholder.com/400x300?text=No+Image'} 
-          alt={name || 'Random Cat'} 
-          className="object-cover w-full h-full transition-transform duration-700 ease-out group-hover:scale-105"
-        />
-      )}
-      
-      {/* Subtle inner shadow for depth */}
-      <div className="absolute inset-0 ring-1 ring-inset ring-black/5 pointer-events-none"></div>
+    <div className="w-full h-full flex items-center justify-center p-4">
+      <div className="w-full max-w-[320px] lg:max-w-none lg:h-full bg-zinc-900 rounded-[2.5rem] shadow-[0_50px_100px_-20px_rgba(0,0,0,0.3)] overflow-hidden relative group border-4 border-white/10">
+        {loading ? (
+          <div className="absolute inset-0 flex items-center justify-center bg-zinc-800 animate-pulse">
+            <div className="w-12 h-12 border-4 border-indigo-500/20 border-t-indigo-500 rounded-full animate-spin"></div>
+          </div>
+        ) : error ? (
+          <div className="absolute inset-0 flex flex-col items-center justify-center bg-zinc-800 p-6 text-center">
+            <span className="text-5xl mb-4">😿</span>
+            <span className="text-zinc-500 font-bold uppercase tracking-widest text-[9px]">Image Unavailable</span>
+          </div>
+        ) : (
+          <>
+            <img 
+              src={image || 'https://via.placeholder.com/600x800?text=No+Image'} 
+              alt={name || 'Random Cat'} 
+              className="object-cover w-full h-full transition-all duration-1000 ease-out group-hover:scale-110 group-hover:rotate-1 opacity-90 group-hover:opacity-100"
+            />
+            {/* Subtle Gradient Overlay */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+          </>
+        )}
+        
+        {/* Subtle glass effect on top */}
+        <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent pointer-events-none"></div>
+      </div>
     </div>
   );
 }
